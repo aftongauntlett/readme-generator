@@ -82,10 +82,5 @@ init();
 //     console.log(questions)
 // })
 
-// inquirer.prompt({
-//     type: "input",
-//     message: "Enter your Github username.",
-//     name: "username"
-// }).then(function ({ username }) {
-
-
+// read me badge 
+// ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/aftongauntlett/portfolio)
