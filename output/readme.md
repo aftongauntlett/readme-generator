@@ -1,4 +1,4 @@
-# Read Me Project
+# README Generator
 
 ![GitHub followers](https://img.shields.io/github/followers/aftongauntlett?style=social)
 
@@ -7,25 +7,43 @@
 ```
 
 
-# Read Me Project
-
- Deployed at: aftongauntlett.com
+ Deployed at: https://github.com/aftongauntlett/readme-generator
 
 Contact Me: null
 
 ## Project Description
-undefined
+Create a readme.md based on user input.
 
 ## Installation Information
-None
+npm i
 
 ## Getting Started
-Run
+follow installation instructions, answer questions
 
 ## How to Run a Test
- No
+ n/a
 
 ## License Used
-* undefined
+* MIT License
+
+Copyright(c) [2020] [aftongauntlett]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files(the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 ![profile picture](https://avatars1.githubusercontent.com/u/59119773?v=4)

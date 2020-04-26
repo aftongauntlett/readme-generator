@@ -14,7 +14,7 @@ Project URL: https://aftongauntlett.github.io/readme-generator/
 
 Email: aftongauntlett@gmail.com
 
-Website: aftongauntlett.com
+Website: http://aftongauntlett.com/
 
 
 

@@ -117,10 +117,10 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.`
             // output all info into the readme based on user input
             output += "\n\n" + `![GitHub followers](https://img.shields.io/github/followers/${username}?style=social)`
             output += "\n\n```\n Developed by: " + userInputObject.username + " \n```\n"
-            output += "\n\n# " + userInputObject.project
+            // output += "\n\n# " + userInputObject.project
             output += "\n\n Deployed at: " + userInputObject.projectURL
             output += "\n\nContact Me: " + response.data.email
-            output += "\n\n## Project Description\n" + userInputObject.discription
+            output += "\n\n## Project Description\n" + userInputObject.description
             output += "\n\n## Installation Information\n" + userInputObject.installation
             output += "\n\n## Getting Started\n" + userInputObject.start
             output += "\n\n## How to Run a Test\n " + userInputObject.test
