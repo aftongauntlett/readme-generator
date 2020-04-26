@@ -64,7 +64,6 @@ const questions = [{
 function writeToFile(fileName, data) {
     fs.writeFile("output/" + fileName, data, function (err) {
         if (err) return console.log(err);
-        console.log('Hello World > helloworld.txt');
     })
 }
 
@@ -74,32 +73,34 @@ function init() {
     inquirer.prompt(questions).then(function (userInputObject) {
         console.log(userInputObject, userInputObject.username)
         let username = userInputObject.username
-        let output = "# " + userInputObject.project
-        output += "\n\n" + `![GitHub followers](https://img.shields.io/github/followers/${username}?style=social)`
-        output += "\n\nDeveloped by: " + userInputObject.username
-        output += "\n\nContact: " + userInputObject.email
-        output += "\n\nproject: " + userInputObject.project
-        output += "\n\nprojectURL: " + userInputObject.projectURL
-        output += "\n\nDescription: " + userInputObject.discription
-        output += "\n\nDescription: " + userInputObject.discription
-        output += "\n\nLicenses: " + userInputObject.license
-        output += "\n\nInstallation information: " + userInputObject.installation
-        output += "\n\nHow to run a test: " + userInputObject.test
-        output += "\n\nInformation about the repo: " + userInputObject.repo
-        writeToFile("readme.md", output)
-    })
+        const queryUrl = `https://api.github.com/users/${username}`;
+
+        axios.get(queryUrl).then(function (response) {
+            const userAvatar = response.data.avatar_url
+
+            console.log(userAvatar)
+
+            let output = "# " + userInputObject.project
+            output += "\n\n" + `![GitHub followers](https://img.shields.io/github/followers/${username}?style=social)`
+            output += "\n\nDeveloped by: " + userInputObject.username
+            output += "\n\nContact: " + userInputObject.email
+            output += "\n\nproject: " + userInputObject.project
+            output += "\n\nprojectURL: " + userInputObject.projectURL
+            output += "\n\nDescription: " + userInputObject.discription
+            output += "\n\nLicenses: " + userInputObject.license
+            output += "\n\nInstallation information: " + userInputObject.installation
+            output += "\n\nHow to run a test: " + userInputObject.test
+            output += "\n\nInformation about the repo: " + userInputObject.repo
+            output += "\n\n![profile picture](" + response.data.avatar_url + ")"
+
+
+
+            writeToFile("readme.md", output)
+        })
+    });
+
 }
 
 // run the function init
 init();
 
-
-
-
-// replaces for loop
-// questions.map(questions => {
-//     console.log(questions)
-// })
-
-// read me badge 
-// ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/aftongauntlett/portfolio)
