@@ -55,12 +55,6 @@ const questions = [{
 
 {
     type: "input",
-    message: "What does the user need to know about using the repo?",
-    name: "repo"
-},
-
-{
-    type: "input",
     message: "Getting Started",
     name: "start"
 },
@@ -93,12 +87,8 @@ function init() {
             output += "\n\nLicenses Used: \n* " + userInputObject.license
             output += "\n\nInstallation information: " + userInputObject.installation
             output += "\n\nHow to run a test: " + userInputObject.test
-            output += "\n\nInformation about the repo: " + userInputObject.repo
             output += "\n\nGetting Started: " + userInputObject.start
             output += "\n\n![profile picture](" + response.data.avatar_url + ")"
-
-
-
 
             writeToFile("readme.md", output)
         })
