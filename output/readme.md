@@ -1,23 +1,29 @@
-# as
+# 
 
 ![GitHub followers](https://img.shields.io/github/followers/aftongauntlett?style=social)
 
-Developed by: aftongauntlett
+```
+ Developed by:aftongauntlett
+```
 
-Contact: as
 
-project: as
+Email: null
 
-projectURL: as
+Project Name: 
+
+Project URL: 
 
 Description: undefined
 
-Licenses: MIT
+Licenses Used: 
+* MIT
 
-Installation information: as
+Installation information: 
 
-How to run a test: as
+How to run a test: 
 
 Information about the repo: 
 
-Profile Picture: ![profile picture](https://avatars1.githubusercontent.com/u/59119773?v=4)
+Getting Started: 
+
+![profile picture](https://avatars1.githubusercontent.com/u/59119773?v=4)

@@ -9,12 +9,12 @@ const questions = [{
     message: "Enter your Github username",
     name: "username"
 },
-
-{
-    type: "input",
-    message: "Enter your email address",
-    name: "email"
-},
+// replaced with github api pull - but does not work if email is set to private. (null)
+// {
+//     type: "input",
+//     message: "Enter your email address",
+//     name: "email"
+// },
 
 {
     type: "input",
@@ -58,6 +58,12 @@ const questions = [{
     message: "What does the user need to know about using the repo?",
     name: "repo"
 },
+
+{
+    type: "input",
+    message: "Getting Started",
+    name: "start"
+},
 ]
 
 // create writetoFile function and use fs to save to the generated readme file, save that to a folder I created called output.
@@ -68,7 +74,6 @@ function writeToFile(fileName, data) {
 }
 
 // Create a function to run through all questions and output them into a readme
-//  my backtick button is broken on my desktop, that is why I am concatinating. Will work on fixing that soon)
 function init() {
     inquirer.prompt(questions).then(function (userInputObject) {
         console.log(userInputObject, userInputObject.username)
@@ -77,21 +82,21 @@ function init() {
 
         axios.get(queryUrl).then(function (response) {
             const userAvatar = response.data.avatar_url
-
-            console.log(userAvatar)
-
             let output = "# " + userInputObject.project
+
             output += "\n\n" + `![GitHub followers](https://img.shields.io/github/followers/${username}?style=social)`
-            output += "\n\nDeveloped by: " + userInputObject.username
-            output += "\n\nContact: " + userInputObject.email
-            output += "\n\nproject: " + userInputObject.project
-            output += "\n\nprojectURL: " + userInputObject.projectURL
-            output += "\n\nDescription: " + userInputObject.discription
-            output += "\n\nLicenses: " + userInputObject.license
+            output += "\n\n```\n Developed by:" + userInputObject.username + " \n```\n"
+            output += "\n\nEmail: " + response.data.email
+            output += "\n\nProject Name: " + userInputObject.project
+            output += "\n\nProject URL: " + userInputObject.projectURL
+            output += "\n\nProject description: " + userInputObject.discription
+            output += "\n\nLicenses Used: \n* " + userInputObject.license
             output += "\n\nInstallation information: " + userInputObject.installation
             output += "\n\nHow to run a test: " + userInputObject.test
             output += "\n\nInformation about the repo: " + userInputObject.repo
+            output += "\n\nGetting Started: " + userInputObject.start
             output += "\n\n![profile picture](" + response.data.avatar_url + ")"
+
 
 
 
