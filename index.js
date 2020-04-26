@@ -72,7 +72,9 @@ function init() {
             const userAvatar = response.data.avatar_url
             let output = "# " + userInputObject.project
 
+            // create object that allows user to select a license and auto generate the entire license into the readme
             const licenses = {
+                // pull current year and the entered username into the license
                 MIT: `MIT License
 
 Copyright(c) [${new Date().getFullYear()}] [${username}]
@@ -110,9 +112,9 @@ ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
 WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.`
-
             }
 
+            // output all info into the readme based on user input
             output += "\n\n" + `![GitHub followers](https://img.shields.io/github/followers/${username}?style=social)`
             output += "\n\n```\n Developed by: " + userInputObject.username + " \n```\n"
             output += "\n\n# " + userInputObject.project
@@ -125,6 +127,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.`
             output += "\n\n## License Used\n* " + licenses[userInputObject.license]
             output += "\n\n![profile picture](" + response.data.avatar_url + ")"
 
+            // add writetofile here
             writeToFile("readme.md", output)
         })
     });
