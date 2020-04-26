@@ -116,7 +116,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.`
 
             // output all info into the readme based on user input
             output += "\n\n" + `![GitHub followers](https://img.shields.io/github/followers/${username}?style=social)`
-            output += "\n\n```\n Developed by: " + userInputObject.username + " \n```\n"
+            output += "\n\n\n Developed by: " + userInputObject.username
             // output += "\n\n# " + userInputObject.project
             output += "\n\n Deployed at: " + userInputObject.projectURL
             output += "\n\nContact Me: " + response.data.email
@@ -136,4 +136,3 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.`
 
 // run the function init
 init();
-
