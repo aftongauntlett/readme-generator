@@ -9,12 +9,6 @@ const questions = [{
     message: "Enter your Github username",
     name: "username"
 },
-// replaced with github api pull - but does not work if email is set to private. (null)
-// {
-//     type: "input",
-//     message: "Enter your email address",
-//     name: "email"
-// },
 
 {
     type: "input",
@@ -37,7 +31,7 @@ const questions = [{
 {
     type: "list",
     message: "What kind of license should your project have?",
-    choices: ["MIT", "Apache 2.0", "GNU GPLv3", "Mozilla Public License 2.0"],
+    choices: ["MIT", "ISC License", "None"],
     name: "license"
 },
 
@@ -78,16 +72,57 @@ function init() {
             const userAvatar = response.data.avatar_url
             let output = "# " + userInputObject.project
 
+            const licenses = {
+                MIT: `MIT License
+
+Copyright(c) [${new Date().getFullYear()}] [${username}]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files(the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.`,
+
+                'ISC License': `ISC License 
+                
+Copyright(c) [${new Date().getFullYear()}] [${username}]
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.`
+
+            }
+
             output += "\n\n" + `![GitHub followers](https://img.shields.io/github/followers/${username}?style=social)`
-            output += "\n\n```\n Developed by:" + userInputObject.username + " \n```\n"
-            output += "\n\nEmail: " + response.data.email
-            output += "\n\nProject Name: " + userInputObject.project
-            output += "\n\nProject URL: " + userInputObject.projectURL
-            output += "\n\nProject description: " + userInputObject.discription
-            output += "\n\nLicenses Used: \n* " + userInputObject.license
-            output += "\n\nInstallation information: " + userInputObject.installation
-            output += "\n\nHow to run a test: " + userInputObject.test
-            output += "\n\nGetting Started: " + userInputObject.start
+            output += "\n\n```\n Developed by: " + userInputObject.username + " \n```\n"
+            output += "\n\n# " + userInputObject.project
+            output += "\n\n Deployed at: " + userInputObject.projectURL
+            output += "\n\nContact Me: " + response.data.email
+            output += "\n\n## Project Description\n" + userInputObject.discription
+            output += "\n\n## Installation Information\n" + userInputObject.installation
+            output += "\n\n## Getting Started\n" + userInputObject.start
+            output += "\n\n## How to Run a Test\n " + userInputObject.test
+            output += "\n\n## License Used\n* " + licenses[userInputObject.license]
             output += "\n\n![profile picture](" + response.data.avatar_url + ")"
 
             writeToFile("readme.md", output)
